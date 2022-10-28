@@ -1,5 +1,7 @@
 package codeSquad.JavaCalendar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calendar {
@@ -23,13 +25,24 @@ public class Calendar {
 
 		Scanner scan = new Scanner(System.in);
 		Calendar cal = new Calendar();
+		
+		System.out.println("반복횟수를 입력하세요.");
+		int n = scan.nextInt();
+		
+		List<Integer> listOfMonth = new ArrayList<>();
+		
+		System.out.println("월을 입력하세요.");
+		do {
+			listOfMonth.add(scan.nextInt());
+			n--;
+		} while (n > 0);
 
-		System.out.println("달을 입력하세요.");
-		int month = scan.nextInt();
-
-		System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
-
-		cal.printSampleCalendar();
+		System.out.println();
+		
+		for (int i = 0; i < listOfMonth.size(); i++) {
+			System.out.printf("%d월은 %d일까지 있습니다.\n", listOfMonth.get(i), cal.getMaxDaysOfMonth(listOfMonth.get(i)));
+		}
+		
 		scan.close();
 
 	}
