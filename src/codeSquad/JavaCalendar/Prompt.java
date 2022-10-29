@@ -15,13 +15,17 @@ public class Prompt {
 			System.out.println("월을 입력하세요.");
 			System.out.print("MONTH> ");
 			int month = scan.nextInt();
+			System.out.print("첫번째 요일을 입력하세요. (SU MO TU WE TH FR SA)\n");
+			System.out.print("WEEKDAY> ");
+			String week = scan.next();
+			
 			if (year == -1 || month == -1) {
 				break;
 			} else if (month == 0 || month > 12 || month < -2) {
 				System.out.println("올바른 범위가 아닙니다!");
 				continue;
 			}
-			cal.printCalendar(year, month);
+			cal.printCalendar(year, month, week);
 		}
 		System.out.println("Have a nice day~");
 		scan.close();
